@@ -58,3 +58,12 @@
 - ผลลัพธ์: สร้าง task list แบบเรียงลำดับการพึ่งพา พร้อมแต่ละ task ระบุ FR/AC, ไฟล์ที่แตะ, dependency, and completion condition; มีทั้งหมด 11 task และ 2 task ที่รอ Q-02
 - ข้อสังเกต: ทุก AC ใน `spec.md` มี task ตรวจแล้วครบตามเงื่อนไข `ตรวจด้วย` และ constraint ครอบคลุมครบทุก ID
 - สิ่งที่ต้องรอ: Q-02 เพื่อกำหนดรูปแบบและการรีเซ็ตหมายเลขคิวก่อนปิด task ที่เกี่ยวกับ queue_no และหน้าจอแสดงผลการจอง
+
+---
+
+## 2569-09-23 11:18 คำสั่ง: /implement T-01
+
+- เครื่องมือ: Copilot ใน Codespaces
+- ไฟล์ที่สร้างหรือแก้: backend/app/config.py, backend/app/db/models.py, backend/app/db/session.py, backend/app/db/migrations/001_init.py, backend/tests/test_task_T_01.py
+- ผล test: `cd backend && pytest tests/test_task_T_01.py -q` ผ่าน (1 test, 1 passed)
+- สิ่งที่เกือบต้องเดาแต่ถามแทน: ไม่มี; กติกาเรื่องฐานข้อมูล PostgreSQL และ schema ที่ต้องมีตรงตาม spec ได้อ้างอิงจาก plan.md และ spec.md อย่างชัดเจน
