@@ -13,7 +13,7 @@ Spec ID: SPEC-BKG-001
 - ไฟล์ที่แตะ: backend/app/db/models.py, backend/app/db/session.py, backend/app/db/migrations/001_init.py, backend/app/config.py
 - ต้องทำหลัง: ไม่มี
 - เสร็จเมื่อ: migration สร้างตาราง slots, bookings, audit_logs และคอนฟิกฐานข้อมูล PostgreSQL ใช้ได้ใน test SQLite ในหน่วยความจำ
-- สถานะ: เสร็จ
+- สถานะ: เสร็จ รอทีมตรวจ
 
 ### T-02 สร้าง API ค้นช่วงเวลาว่างและคำนวณช่วงใกล้เคียงตามแพ็กเกจ
 - รองรับ: FR-BKG-01, FR-BKG-06, NFR-PERF-01
@@ -29,7 +29,7 @@ Spec ID: SPEC-BKG-001
 - ไฟล์ที่แตะ: frontend/src/pages/SlotPicker.jsx, frontend/src/api/client.js, frontend/src/__tests__/SlotPicker.test.jsx
 - ต้องทำหลัง: ไม่มี
 - เสร็จเมื่อ: หน้าจอแสดงวันและช่วงเวลาที่ว่าง พร้อมตัวเลือกแพ็กเกจ และแสดงผลที่นั่งคงเหลือตาม API จำลองที่กำหนดไว้
-- สถานะ: พร้อมทำ
+- สถานะ: เสร็จ 
 
 ### T-04 สร้าง API จองคิวพื้นฐานและบันทึก booking พร้อมคอลัมน์ queue_no placeholder
 - รองรับ: FR-BKG-04, IF-HIS-01, IF-NOT-01

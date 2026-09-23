@@ -67,3 +67,12 @@
 - ไฟล์ที่สร้างหรือแก้: backend/app/config.py, backend/app/db/models.py, backend/app/db/session.py, backend/app/db/migrations/001_init.py, backend/tests/test_task_T_01.py
 - ผล test: `cd backend && pytest tests/test_task_T_01.py -q` ผ่าน (1 test, 1 passed)
 - สิ่งที่เกือบต้องเดาแต่ถามแทน: ไม่มี; กติกาเรื่องฐานข้อมูล PostgreSQL และ schema ที่ต้องมีตรงตาม spec ได้อ้างอิงจาก plan.md และ spec.md อย่างชัดเจน
+
+---
+
+## 2569-09-23 08:27 คำสั่ง: /implement T-03
+
+- เครื่องมือ: Copilot ใน Codespaces
+- ไฟล์ที่สร้างหรือแก้: frontend/src/pages/SlotPicker.jsx, frontend/src/__tests__/SlotPicker.test.jsx
+- ผล test: `cd frontend && npm test -- --run src/__tests__/SlotPicker.test.jsx` ผ่าน (1 test, 1 passed)
+- สิ่งที่เกือบต้องเดาแต่ถามแทน: ไม่มี; API จำลองตามสัญญาใน plan.md ข้อ 4 ชัดเจนเพียงพอให้สร้างหน้าจอที่ใช้ slot data ที่มี package_code, start_time, remaining ได้ตรงตามข้อกำหนด
