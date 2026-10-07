@@ -54,3 +54,33 @@
 - TC ID ที่เสนอต่อ: TC-BKG-01-1, TC-BKG-01-2, TC-BKG-01-3
 - ผล: ยังไม่เขียนโค้ด test เนื่องจากกรณีร่าง; ต้องให้ทีมตรวจแถวและเปลี่ยนสถานะเป็น "ใช้ได้" ก่อน จากนั้นสั่ง /testcases อีกครั้ง
 - หมายเหตุ: task ที่ตรวจ AC-BKG-01 คือ T-03 (เสร็จ) และ T-06 (รอ Q-02); จึงมีประเด็นเรื่องรูปแบบหมายเลขคิวที่ยังไม่ชัดเจน แต่ AC-BKG-01 เองยังระบุได้แค่ "แสดงหมายเลขคิว" เท่านั้น
+
+---
+
+## 2569-10-07 08:23 คำสั่ง: /testcases AC-BKG-01 specs/001-booking/
+
+- เครื่องมือ: Copilot ใน Codespaces (Agent, Auto)
+- โหมด: เขียน test (แถว TC-BKG-01-1 ถึง TC-BKG-01-3 มีสถานะ "ใช้ได้")
+- ไฟล์ที่เขียน: backend/tests/test_AC_BKG_01.py, frontend/src/__tests__/AC-BKG-01.test.jsx
+- ผล backend: 3 passed ด้วย pytest
+- ผล frontend: 1 suite failed เพราะ ยังไม่มีไฟล์ frontend/src/pages/BookingResult.jsx และหน้าจอแสดงผลการจองยังไม่ถูกสร้างตาม task T-06 / T-11
+- สรุป: ระบบหลังบ้านตรงตาม AC-BKG-01 แต่หน้าจอยังไม่พร้อม จึงไม่ถือว่าโค้ดระบบผิดใน backend; กลับเป็น task ที่ยังไม่ได้สร้างสำหรับส่วน UI
+
+---
+
+## 2569-10-07 08:30 คำสั่ง: /verify specs/001-booking/
+
+- เครื่องมือ: Copilot ใน Codespaces (Agent, Auto)
+- ผล test: backend pytest -v = 6 passed, 1 warning; frontend npm test -- --run = 1 passed, 1 failed suite
+- จำนวนแถวใน RTM ตามสถานะ: ครบ 7, ยังไม่ถึง 11, รอ 0, ช่องโหว่ 2
+- ข้อค้นพบใหม่: F-001 (AC ไม่มี test / test อ่อน), F-002 (ละเมิด Constraint), F-003 (ตัวเลขไม่ตรง spec)
+- บันทึก: rtm.md สร้างใหม่ภายใต้ specs/001-booking/
+
+---
+
+## 2569-10-07 08:39 คำสั่ง: แก้โค้ดตามข้อค้นพบ: ลบชองทางออกของ UC-02
+
+- เครื่องมือ: Copilot ใน Codespaces (Agent, Auto)
+- เปลี่ยนแปลง: ลบ DELETE /bookings/{booking_id} ออกจาก backend/app/booking/router.py และลบฟังก์ชัน cancel_booking ออกจาก backend/app/booking/service.py
+- เหตุผล: UC-02 (ยกเลิก/เลื่อนคิว) อยู่ใน Out of scope ของ spec และไม่ควรเป็นส่วนหนึ่งของ feature นี้
+- ผล test: backend pytest -q = 6 passed
